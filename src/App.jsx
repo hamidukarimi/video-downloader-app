@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 // import Users from "./components/Users/users";
 
-
-
 import DownloadVideo from "./components/download-video/DownloadVideo";
 
 const App = () => {
-  console.log("Using API:", import.meta.env.VITE_API_BASE_URL);
-
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -29,12 +25,6 @@ const App = () => {
     }
   }, []);
 
-  // example codes the bellow
-  const options = [
-    { label: "Delete Post", onClick: () => console.log("delete") },
-    { label: "Report Post", onClick: () => console.log("report") },
-  ];
-
   return (
     <>
       {loading ? (
@@ -46,7 +36,6 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/download-video" element={<DownloadVideo />} />
-  >
           </Routes>
         </>
       )}
