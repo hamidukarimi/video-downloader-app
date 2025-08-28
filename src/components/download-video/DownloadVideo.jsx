@@ -228,7 +228,7 @@ export default function DownloadVideo() {
         format: options.format,
         quality: options.quality,
       };
-      const res = await axios.post("http://localhost:5000/download", payload, {
+      const res = await axios.post("https://video-downloader-backend-3jov.onrender.com/download", payload, {
         timeout: 0,
       });
 

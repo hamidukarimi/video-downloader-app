@@ -37,7 +37,7 @@ export default function Home() {
     if (!v) return false;
     try {
       // allow URLs without protocol (e.g., youtube.com/...)
-      const hasProtocol = v.startsWith("http://") || v.startsWith("https://");
+      const hasProtocol = v.startsWith("https://") || v.startsWith("https://");
       const parsed = new URL(hasProtocol ? v : `https://${v}`);
       return !!parsed.hostname;
     } catch (e) {
@@ -96,7 +96,7 @@ async function fetchMetadata(videoUrl) {
 
   // 1) Primary: ask our backend (server-side) for metadata
   try {
-    const serverRes = await axios.get("http://localhost:5000/meta", {
+    const serverRes = await axios.get("https://video-downloader-backend-3jov.onrender.com/meta", {
       params: { url: trimmed },
       timeout: 15000,
       signal: controller.signal,
@@ -251,7 +251,7 @@ async function fetchMetadata(videoUrl) {
   // small spinner (keeps your design, minimal)
   function SpinnerSmall() {
     return (
-      <svg className="animate-spin h-4 w-4 text-slate-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <svg className="animate-spin h-4 w-4 text-slate-300" xmlns="https://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
         <circle className="opacity-20" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
         <path className="opacity-80" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
       </svg>
