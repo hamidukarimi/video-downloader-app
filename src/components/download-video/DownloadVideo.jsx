@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import { FaArrowLeft, FaPlay } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+// import API_BASE_URL from "../../config";
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
 
 export default function DownloadVideo() {
   const { state } = useLocation();
@@ -228,7 +231,7 @@ export default function DownloadVideo() {
         format: options.format,
         quality: options.quality,
       };
-      const res = await axios.post("https://video-downloader-backend-3jov.onrender.com/download", payload, {
+      const res = await axios.post(`${BASE_URL}/download`, payload, {
         timeout: 0,
       });
 
